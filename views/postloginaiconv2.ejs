@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot with Conversation History</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-blue-50">
+
+
+<div class="max-w-[1500px] mx-auto bg-blue-100 p-8 rounded-md shadow-md mt-10">
+    <label for="userQuestion" class="block font-bold text-blue-600 text-2xl mb-4 ">Enter your question:</label>
+    <input type="text" id="userQuestion" class="w-full px-4 py-2 border-node outline-none rounded-md mb-4" spellcheck="false">
+    <button id="sendButton" class="bg-blue-600 text-white font-bold px-4 py-2 rounded-md hover:bg-blue-400">
+        Send
+    </button>
+</div>
+<div id="chatContainer" class="mt-16 ml-2 mr-2 bg-blue-50 text-white text-xl overflow-y-auto max-h-96"></div>
+
+<script>
+    var xhr = new XMLHttpRequest();
+    var url = "https://api.worqhat.com/api/ai/content/v2";
+    var conversationHistory = [];
+
+    document.getElementById('sendButton').addEventListener('click', function () {
+        var userQuestion = document.getElementById('userQuestion').value;
+
+        xhr.open("POST", url);
+        xhr.setRequestHeader("Authorization", "Bearer sk-4d1635676d884cf2b285c9c5665aeb36 ");
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                var result = JSON.parse(xhr.responseText);
+
+                // Update conversation history
+                conversationHistory.push({ user: userQuestion, bot: result.content });
+
+                // Display the entire conversation history
+                displayConversation();
+
+                // Clear the input field
+                document.getElementById('userQuestion').value = '';
+            }
+        };
+
+        var raw = JSON.stringify({
+            question: userQuestion,
+            preserve_history: true,
+            conversation_history: conversationHistory,
+
+            randomness: 0.4,
+        });
+
+        xhr.send(raw);
+    });
+
+    document.getElementById('userQuestion').addEventListener('keypress', function(event){
+        console.log(event.key);
+        if(event.key === 'Enter'){
+            var userQuestion = document.getElementById('userQuestion').value;
+
+        xhr.open("POST", url);
+        xhr.setRequestHeader("Authorization", "Bearer sk-4d1635676d884cf2b285c9c5665aeb36 ");
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                var result = JSON.parse(xhr.responseText);
+
+                // Update conversation history
+                conversationHistory.push({ user: userQuestion, bot: result.content });
+
+                // Display the entire conversation history
+                displayConversation();
+
+                // Clear the input field
+                document.getElementById('userQuestion').value = '';
+            }
+        };
+
+        var raw = JSON.stringify({
+            question: userQuestion,
+            preserve_history: true,
+            conversation_history: conversationHistory,
+
+            randomness: 0.4,
+        });
+
+        xhr.send(raw);
+
+        }
+    })
+
+    function displayConversation() {
+        var chatContainer = document.getElementById('chatContainer');
+        chatContainer.innerHTML = '';
+
+        conversationHistory.forEach(entry => {
+            chatContainer.innerHTML += '<div class="message">' +
+                                        '<p class="userMessage bg-blue-400 mb-2 ml-2 rounded-lg mr-24 p-2 text-white">You: ' + entry.user + '</p>' +
+                                        '<p class="botMessage bg-blue-200 mb-2 ml-24 rounded-lg mr-2 p-2 text-black">Doubtsolver: ' + entry.bot + '</p>' +
+                                        '</div>';
+        });
+    }
+</script>
+
+</body>
+</html>

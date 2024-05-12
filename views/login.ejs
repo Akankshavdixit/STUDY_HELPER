@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>login</title>
+</head>
+<body class="bg-blue-50">
+  <div>
+    <div class="md:grid md:grid-cols-2  md:ml-16 md:mt-12 lg:mt-28">
+      <div class="col-span-1">
+        <img src="https://img.freepik.com/free-photo/view-futuristic-high-tech-classroom-students_23-2150906218.jpg?t=st=1708075861~exp=1708079461~hmac=36d086c79b5f786ce71cf77d0f8a80c7ff54120dd5e0c822c6a5565ba55b27ae&w=740" class=" rounded-2xl h-[500px] md:ml-32 lg:ml-60" alt="">
+
+      </div>
+      <div class="col-span-1 bg-white md:mr-32 lg:mr-60 rounded-xl"> 
+        <p class="font-bold text-3xl text-black font-sans  md:ml-24 md:mt-28">Login</p>
+        <form action="/login" method="post">
+          
+          <input type="text" placeholder="username" name="username" class="md:ml-24 bg-gray-50 py-2 px-2 border-none outline-none md:mt-7" spellcheck="false">
+          <input type="password" placeholder="password" name="password" class="md:ml-24 bg-gray-50 py-2 px-2 border-none outline-none md:mt-7" spellcheck="false">
+          
+          <a href="/login"><button class="text-white text-lg bg-blue-600 md:px-5 md:py-2 md:ml-44 md:mt-12 rounded-xl ">Login</button></a>
+            <p class="md:ml-28 md:mt-8 ">
+              Don't have an account?
+              <a
+                class="font-semibold text-blue-500 transition-all duration-200"
+                href="/signup"
+                >Sign up</a>
+            </p>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+            
+           
+        
+            
+         
+      
+    
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>signup</title>
+</head>
+<body class="bg-blue-50">
+  <div>
+    <div class="md:grid md:grid-cols-2  ml-16 mt-12 lg:mt-28 ">
+      <div class="col-span-1">
+        <img src="https://img.freepik.com/free-photo/view-3d-school-desk_23-2151103683.jpg?size=626&ext=jpg&ga=GA1.1.1493904643.1683128160&semt=ais_ai_generated" class=" rounded-2xl h-[500px] md:ml-32 lg:ml-60" alt="">
+
+      </div>
+      <div class="col-span-1 bg-white md:mr-32 lg:mr-60 rounded-xl"> 
+        <p class="text-black font-bold font-sans text-2xl ml-24 mt-16">Sign Up</p>
+        <form action="/signup" method="post">
+          <input type="text" placeholder="username" name ="username" class="ml-24 mt-12 bg-gray-50 py-2 px-2 border-none outline-none" spellcheck="false">
+          
+          <input type="password" placeholder="password" name="password" class="ml-24 mt-7 bg-gray-50 py-2 px-2 border-none outline-none" spellcheck="false">
+          
+          <a href="/signup"><button class="text-white text-lg bg-blue-600 px-5 py-2 ml-40 mt-12 rounded-xl ">Create Account</button></a>
+          <p class="ml-32 mt-6 ">
+            Already have an account?
+            <a
+              class="font-semibold text-blue-500 transition-all duration-200"
+              href="/login"
+              >Login</a>
+          </p>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+    
+      
+    
+</body>
+</html>
