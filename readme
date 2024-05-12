@@ -1,2 +1,11 @@
-akankshavdixit
-mm7qOKeeq5zBvvVp
+STUDY_HELPER is a collaborative project featuring PostgreSQL, Node.js, Express, Tailwind CSS, EJS, and JavaScript. 
+Additionally, ongoing work is being done to implement additional features like summarizing pdfs and chat with pdf(these features are currently inactive)
+
+How to run:
+1. npm i
+2. npm i dotenv
+3. npm run build
+4. nodemon src/index.js
+
+
+
